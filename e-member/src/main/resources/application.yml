@@ -5,8 +5,17 @@ spring:
     password: root
     url: jdbc:mysql://47.101.157.113:3306/ecommerce_ums
     driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+  application:
+    name: emember
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
+
+server:
+  port: 8000
