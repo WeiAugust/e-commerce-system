@@ -20,6 +20,9 @@
         <module>e-member</module>
         <module>e-order</module>
         <module>e-products</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>e-common</module>
     </modules>
     
 </project>
