@@ -1,6 +1,7 @@
 package com.wzg.ecommerce.eproducts.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -26,7 +27,7 @@ import com.wzg.ecommerce.common.utils.R;
  * @date 2020-08-18 20:21:25
  */
 @RestController
-@RequestMapping("generator/category")
+@RequestMapping("product/category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
@@ -34,11 +35,10 @@ public class CategoryController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @RequestMapping("/list/tree")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
-
-        return R.ok().put("page", page);
+        List<CategoryEntity> entities = categoryService.listCategoryWithTree();
+        return R.ok().put("data", entities);
     }
 
 
@@ -49,7 +49,7 @@ public class CategoryController {
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("data", category);
     }
 
     /**
@@ -67,17 +67,26 @@ public class CategoryController {
      */
     @RequestMapping("/update")
     public R update(@RequestBody CategoryEntity category){
-		categoryService.updateById(category);
-
+		categoryService.updateCascade(category);
         return R.ok();
     }
+    /**
+     * 批量修改
+     */
+    @RequestMapping("/update/sort")
+    public R updateSort(@RequestBody CategoryEntity[] category){
+        categoryService.updateBatchById(Arrays.asList(category));
+        return R.ok();
+    }
+
 
     /**
      * 删除
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+//		categoryService.removeByIds(Arrays.asList(catIds));
+		categoryService.removeMenusByIds(Arrays.asList(catIds));
 
         return R.ok();
     }

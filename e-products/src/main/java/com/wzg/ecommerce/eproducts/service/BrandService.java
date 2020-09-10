@@ -3,6 +3,7 @@ package com.wzg.ecommerce.eproducts.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wzg.ecommerce.common.utils.PageUtils;
 import com.wzg.ecommerce.eproducts.entity.BrandEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
@@ -16,5 +17,8 @@ import java.util.Map;
 public interface BrandService extends IService<BrandEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    @Transactional
+    void updateDetail(BrandEntity brand);
 }
 

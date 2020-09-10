@@ -25,7 +25,7 @@ import com.wzg.ecommerce.common.utils.R;
  * @date 2020-08-18 20:21:24
  */
 @RestController
-@RequestMapping("generator/productattrvalue")
+@RequestMapping("product/productattrvalue")
 public class ProductAttrValueController {
     @Autowired
     private ProductAttrValueService productAttrValueService;

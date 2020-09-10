@@ -25,7 +25,7 @@ import com.wzg.ecommerce.common.utils.R;
  * @date 2020-08-18 20:21:25
  */
 @RestController
-@RequestMapping("generator/skuinfo")
+@RequestMapping("product/skuinfo")
 public class SkuInfoController {
     @Autowired
     private SkuInfoService skuInfoService;

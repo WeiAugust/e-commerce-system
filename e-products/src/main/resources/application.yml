@@ -4,8 +4,28 @@ spring:
     password: root
     url: jdbc:mysql://47.101.157.113:3306/ecommerce_pms
     driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+    application:
+      name: eproduct
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
   global-config:
     db-config:
       id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+server:
+  port: 8082
+alibaba:
+  cloud:
+    access-key: LTAI4G27dBopepUXHtTQeuoc
+    secret-key: 755babXh0PfSfGrbpaFy6QKihvTUKK
+    oss:
+      endpoint: oss-cn-shanghai.aliyuncs.com
+
+

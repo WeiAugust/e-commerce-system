@@ -3,6 +3,7 @@ package com.wzg.ecommerce.eproducts.dao;
 import com.wzg.ecommerce.eproducts.entity.AttrGroupEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * 属性分组
@@ -12,6 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2020-08-18 20:21:25
  */
 @Mapper
+@Component
 public interface AttrGroupDao extends BaseMapper<AttrGroupEntity> {
 	
 }
